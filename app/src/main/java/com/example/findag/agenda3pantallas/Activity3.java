@@ -14,9 +14,14 @@ import android.widget.Toast;
 
 public class Activity3 extends Activity {
 
-    // Definimos los dos EditText que usaremos(nombre, y telefono)
+    // Definimos los dos EditText que usaremos(nombre, y telefono) y un objeto de tipo contacto
     EditText edtNombre;
     EditText edtTelefono;
+    Contactos contacto;
+
+    //Definimos nuestra variable static que sera nuestro requestCode(esta variable es la que identifica el intent que enviamos).
+    private final static int BORRADO = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -28,7 +33,7 @@ public class Activity3 extends Activity {
         edtTelefono = (EditText) findViewById(R.id.edtTelefonoP3);
 
         // Recogemos el Intent en un objeto de tipo Contactos.
-        Contactos contacto = (Contactos) getIntent().getSerializableExtra("contactoEdit");
+        contacto = (Contactos) getIntent().getSerializableExtra("contactoEdit");
 
         // Agregamos el contenido de getNombre en edtNombre y el de getTelefono en edtTelfono
         edtNombre.setText(contacto.getNombre());
@@ -55,6 +60,24 @@ public class Activity3 extends Activity {
                 finish();
             }
         });
+
+        // Recogemos el objeto del boton borrar.
+        Button btnBorrar = (Button) findViewById(R.id.btnBorrar);
+
+        // Ahora debemos definir el onclick de nuestro nuevo boton Borrar.
+        btnBorrar.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                // Creamos un nuevo Intent
+                Intent borrado = new Intent(Activity3.this, Borrar.class);
+                borrado.putExtra("borrando",contacto);
+                startActivityForResult(borrado, BORRADO);
+
+            }
+        });
+
     }
 
 
@@ -80,16 +103,29 @@ public class Activity3 extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    // Este metodo recibira un entero que dependiendo del valor que lleve conseguiremos que se nos muestre una Toast con uno u otro mensaje.
     public void showToast()
     {
         Context context = getApplicationContext();
         int duracion = Toast.LENGTH_SHORT;
-        CharSequence texto;
+        CharSequence texto = null;
 
-        texto = getResources().getString(R.string.modificado);
-        Toast toast = Toast.makeText(context, texto, duracion);
+            texto = getResources().getString(R.string.modificado);
+        Toast toast = Toast.makeText(context,texto,duracion);
 
         toast.show();
+    }
+    protected void onActivityResult (int requestCode, int resultCode, Intent borrado)
+    {
+        super.onActivityResult(requestCode, resultCode, borrado);
+
+        Intent borradoContacto = new Intent();
+        Contactos editado = (Contactos) borrado.getSerializableExtra("si");
+
+            borradoContacto.putExtra("contactoEditado", editado);
+            setResult(RESULT_OK, borradoContacto);
+
+        finish();
+
+
     }
 }
