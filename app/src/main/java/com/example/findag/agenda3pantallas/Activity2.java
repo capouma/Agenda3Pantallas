@@ -73,7 +73,15 @@ public class Activity2 extends ListActivity
 
         Contactos editado = (Contactos) modificado.getSerializableExtra("contactoEditado");
         lista.remove(reEscribe);
-        lista.add(reEscribe,editado);
+        if(editado.getNombre().equals(""))
+        {
+
+        }
+        else
+        {
+            lista.add(reEscribe,editado);
+        }
+
 
         Intent listaFinal = new Intent();
         listaFinal.putExtra("nuevaLista", lista);
