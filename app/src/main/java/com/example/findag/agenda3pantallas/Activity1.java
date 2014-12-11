@@ -14,6 +14,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 
+// Lista para corregir. Finalizada y trabajando.
 public class Activity1 extends Activity
 {
 
