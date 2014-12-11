@@ -22,5 +22,9 @@
     <string name="modificado">Contacto modificado</string>
     <string name="title_activity_activity3">Activity3</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_borrar">Borrar</string>
+
+    <!--Agregamos nuevo boton Borrar -->
+    <string name="btnBorrar">Borrar</string>
 
 </resources>
