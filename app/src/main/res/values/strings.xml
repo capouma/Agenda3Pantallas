@@ -2,7 +2,25 @@
 <resources>
 
     <string name="app_name">Agenda3Pantallas</string>
-    <string name="hello_world">Hello world!</string>
+
+    <!-- Definimos las cajas de texto que mostraremos en nuestra pantalla. -->
+    <string name="txvSaludo">Bienvenido a nuestra Agenda</string>
+    <string name="txvNombre">Nombre</string>
+    <string name="txvTelefono">Telefono</string>
+    <string name="txvTexto">Estos son todos los contactos</string>
+
+    <!-- Definimos el texto que llevaran nuestros botones -->
+    <string name="btnGuardar">Guardar</string>
+    <string name="btnEditar">Editar</string>
+    <string name="btnListar">Listar</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Añadimos los String que vamos a usar para nuestras Toast. -->
+    <string name="noMatch">No se encuentran coincidencias.</string>
+    <string name="noNomTelf">Falta nombre o telefono</string>
+    <string name="title_activity_activity2">Activity2</string>
+    <string name="modificado">Contacto modificado</string>
+    <string name="title_activity_activity3">Activity3</string>
+
 
 </resources>
