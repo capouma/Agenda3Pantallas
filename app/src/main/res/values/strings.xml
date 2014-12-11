@@ -21,6 +21,6 @@
     <string name="title_activity_activity2">Activity2</string>
     <string name="modificado">Contacto modificado</string>
     <string name="title_activity_activity3">Activity3</string>
-
+    <string name="hello_world">Hello world!</string>
 
 </resources>
